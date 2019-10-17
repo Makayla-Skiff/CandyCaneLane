@@ -1,0 +1,48 @@
+﻿@page
+@model CandyCaneLane1._1.Pages.Order.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Orders[0].ONumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Orders[0].FristName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Orders[0].LastName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Orders) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ONumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FristName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.OderID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.OderID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.OderID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
